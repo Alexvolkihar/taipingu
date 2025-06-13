@@ -29,7 +29,9 @@ export class Matcher {
   /** Show the player what to type next (1 character) */
   get hint() {
     if (!this.currentCharIsRomaji) {
-      const kanaTarget = this.targets.find((target) => !isAscii(target[0]))
+      const kanaTarget = this.targets.find(
+        (target) => !isAscii(target.charAt(0)),
+      )
       if (kanaTarget) return kanaTarget.charAt(0)
     }
 
@@ -107,7 +109,7 @@ function getInputTargets(jp) {
   targets.push(nextCharacter)
   if (isFullwidth(nextCharacter)) {
     targets.push(fullwidthToAscii(nextCharacter))
-  } else if(isAscii(nextCharacter)) {
+  } else if (isAscii(nextCharacter)) {
     targets.push(asciiToFullwidth(nextCharacter))
   }
 
