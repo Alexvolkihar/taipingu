@@ -439,8 +439,19 @@ addEventListener('keydown', (e) => {
   if (e.target && e.target.tagName === 'INPUT' && e.target.type === 'text')
     return
 
-  const { key, ctrlKey, altKey, shiftKey } = e
+  const { key, ctrlKey, metaKey, altKey, shiftKey } = e
   console.log(key)
+
+  // Don't intercept keyboard shortcuts
+  // Ignore keypress if modifiers are active (Ctrl,Win/Cmd)
+  if (ctrlKey || metaKey) return
+
+  // ⌥Option on Mac can be used to produce characters
+  // Bug: outside of Mac, Alt-shortcuts trigger input
+  if (altKey && key !== 'Alt') {
+    onInput(key)
+    return
+  }
 
   if (key === 'Tab') {
     furiganaCheckbox.click()
@@ -461,8 +472,6 @@ addEventListener('keydown', (e) => {
     return
   }
 
-  if (ctrlKey || altKey) return
-
   if (key === ' ') {
     e.preventDefault()
     if (shiftKey) {
@@ -475,6 +484,7 @@ addEventListener('keydown', (e) => {
     return
   }
 
+  // Input expects a single character
   if (key.length === 1) {
     e.preventDefault()
     onInput(key)
