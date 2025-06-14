@@ -420,7 +420,8 @@ body.mincho #hintElement::before {
   color: var(--text-2);
   font-size: 55%;
 
-  transition: opacity 100ms ease-in-out, top 100ms ease-in-out, scale 100ms ease-in-out;
+  transition: opacity 100ms ease-in-out, top 100ms ease-in-out,
+    scale 100ms ease-in-out;
 }
 
 body:has(#translationCheckbox:not(:checked)) #translationElement {
@@ -497,6 +498,12 @@ body:has(#sentenceContainer:not(.complete)):has(#sentenceElement .complete)
 
   font-size: 12px;
 }
+.legend.hover-info {
+  text-decoration: 1px underline dotted;
+  text-underline-position: under;
+  cursor: help;
+}
+
 .key {
   top: 100%;
 
@@ -623,7 +630,7 @@ body:has(#sentenceContainer:not(.complete)):has(#sentenceElement .complete)
 }
 
 .custom-checkbox:hover > custom-icon,
-.custom-checkbox:has([type="checkbox"]:checked) > custom-icon {
+.custom-checkbox:has([type='checkbox']:checked) > custom-icon {
   color: currentColor;
 }
 
