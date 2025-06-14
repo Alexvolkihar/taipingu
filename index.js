@@ -66,6 +66,10 @@ async function nextSentence() {
 }
 
 function onInputMistake(key) {
+  for (const el of document.querySelectorAll('#sentenceElement .active')) {
+    el.classList.toggle('error', true)
+  }
+
   // Animate: scale down and turn red
   hintElement.animate(
     [

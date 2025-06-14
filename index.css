@@ -271,6 +271,18 @@ body:not(.furigana) #sentenceElement > ruby > rt {
   opacity: 0;
 }
 
+#sentenceElement .error::before {
+  content: '';
+  position: absolute;
+  width: 0.2em;
+  aspect-ratio: 1;
+  left: 50%;
+  translate: -50%;
+  background-color: var(--error);
+  border-radius: 100%;
+  bottom: 110%;
+}
+
 /* HIGHLIGHT */
 
 #highlightElement {
