@@ -49,6 +49,9 @@ function resetSentence() {
   matcher.reset()
   restartButton.classList.toggle('hidden', true)
   renderSentenceProgress()
+  for (const el of document.querySelectorAll('#sentenceElement .error')) {
+    el.classList.remove('error')
+  }
 }
 
 async function nextSentence() {
@@ -67,7 +70,6 @@ async function nextSentence() {
 
 function onInputMistake(key) {
   for (const el of document.querySelectorAll('#sentenceElement .active')) {
-    
     el.classList.toggle('error', true)
   }
 
