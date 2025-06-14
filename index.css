@@ -753,6 +753,11 @@ label:has(#languageSelect) {
   color: var(--text-muted);
   font-family: 'Courier New', Courier, monospace;
 }
+#logo .domain {
+  font-size: 0.7em;
+  /* font-weight: bolder; */
+  color: var(--text-2);
+}
 
 .links .button custom-icon {
   margin-right: 0.4em;

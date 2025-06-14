@@ -1,4 +1,4 @@
-## <ruby>[Taipingu](https://entibo.github.io/taipingu/)<rt>タイピング</rt></ruby> is a simple Japanese typing game, in the browser
+## <ruby>[Taipingu](https://taipingu.link/)<rt>タイピング</rt></ruby> is a simple Japanese typing game, in the browser
 
 ![image](https://github.com/user-attachments/assets/fc1b44ea-119b-4194-9c0e-190ec209a5f3)
 
