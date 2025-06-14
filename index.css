@@ -271,7 +271,8 @@ body:not(.furigana) #sentenceElement > ruby > rt {
   opacity: 0;
 }
 
-#sentenceElement .error::before {
+#sentenceElement .error::before,
+body:not(.furigana) #sentenceElement ruby:has(.error) > .text::before {
   content: '';
   position: absolute;
   width: 0.2em;
