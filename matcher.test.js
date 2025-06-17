@@ -18,9 +18,13 @@ function expectFullMatch(jp, kb) {
 }
 
 test('ん', () => {
-  // Romaji matching
   expectFullMatch('ん', 'n')
   expectFullMatch('んか', 'nka')
+  
+  // Allow redundant nn -> ん
+  expectFullMatch('んか', 'nnka')
+  expectFullMatch('んか', "n'ka")
+
   expect(match('んい', 'ni')).toEqual(['', 'n'])
   expectFullMatch('んい', 'nni')
   expect(match('んに', 'nni')).toEqual(['ん', 'nn'])

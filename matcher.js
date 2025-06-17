@@ -50,6 +50,18 @@ export class Matcher {
 
   updateInputTargets() {
     this.targets = getInputTargets(this.japaneseText.slice(this.japaneseIndex))
+
+    // Hack to allow a redundant "n" keystroke after a ん character
+    if (
+      this.japaneseText[this.japaneseIndex - 1] === 'ん' &&
+      this.keystrokes.match(/[^n]?n$/)
+    ) {
+      this.targets = [
+        ...this.targets, //
+        ...this.targets.map((s) => 'n' + s),
+        ...this.targets.map((s) => "'" + s),
+      ]
+    }
   }
 
   /**
@@ -68,10 +80,10 @@ export class Matcher {
     // e.g. targets=['a'] input='a'
     if (this.targets.includes(char)) {
       this.japaneseIndex++
+      this.keystrokes += char
       if (this.japaneseIndex < this.japaneseText.length) {
         this.updateInputTargets()
       }
-      this.keystrokes += char
       return true
     }
 
