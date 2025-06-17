@@ -21,7 +21,8 @@ test('ん', () => {
   // Romaji matching
   expectFullMatch('ん', 'n')
   expectFullMatch('んか', 'nka')
-  expectFullMatch('んい', 'ni')
+  expect(match('んい', 'ni')).toEqual(['', 'n'])
+  expectFullMatch('んい', 'nni')
   expect(match('んに', 'nni')).toEqual(['ん', 'nn'])
   expectFullMatch('んに', 'nnni')
   expectFullMatch('んに', "n'ni")
