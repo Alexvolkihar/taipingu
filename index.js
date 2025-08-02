@@ -651,15 +651,6 @@ function enableAudio() {
 
 //
 
-document.fonts.ready.then((fontFaceSet) => {
-  document.body.classList.remove('loading')
-  renderSentence()
-  setTimeout(async () => {
-    await fontFaceSet.load('1em noto-sans')
-    await fontFaceSet.load('1em noto-serif')
-  }, 1000)
-})
-
 loadSettings()
 
 setSentence({
@@ -686,4 +677,13 @@ setSentence({
   ],
   translations: { eng: 'This is a Japanese typing game.' },
   readings: [],
+})
+
+document.fonts.ready.then((fontFaceSet) => {
+  document.body.classList.remove('loading')
+  renderSentence()
+  setTimeout(async () => {
+    await fontFaceSet.load('1em noto-sans')
+    await fontFaceSet.load('1em noto-serif')
+  }, 100)
 })
